@@ -58,8 +58,25 @@ find_package(OpenSSL REQUIRED)
 # add_executable(webserver non-blocking-macos.c)
 # target_link_libraries(webserver OpenSSL::SSL)
 
+if(CMAKE_SYSTEM MATCHES Windows)
+   message(STATUS "Target system is Windows")
+endif()
+
+if(CMAKE_HOST_SYSTEM MATCHES Linux)
+   message(STATUS "Build host runs Linux")
+   add_library(jsNet jsNet-LINUX.c)
+endif()
+
+if(CMAKE_HOST_SYSTEM MATCHES Darwin)
+   message(STATUS "Build host runs MacOs")
+   add_library(jsNet jsNet-MACOS.c)
+endif()
+
+target_link_libraries(jsNet OpenSSL::SSL)
+target_include_directories(jsNet PUBLIC .)   
+
 add_executable(main tests/main.c)
-target_link_libraries(main OpenSSL::SSL)
+target_link_libraries(main jsNet)
 
 
 #include(CTest)
