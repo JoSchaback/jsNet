@@ -13,9 +13,9 @@
 #include <windows.h>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
-/*
+
 WSADATA wsaData;
-*/
+
 void jsNet_init() { /*
     // Declare and initialize variables
     wsaData = {0};
