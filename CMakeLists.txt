@@ -55,8 +55,8 @@ find_package(OpenSSL REQUIRED)
 #add_executable(ctr_cli ctr/cli/main.c ctr/cli/cli.c ctr/client/Client.c)
 #target_link_libraries(ctr_cli cliarg mongoose OpenSSL::SSL jsArray uuid ctr_shared multiplexer log)
 
-add_executable(webserver non-blocking-macos.c)
-target_link_libraries(webserver OpenSSL::SSL)
+# add_executable(webserver non-blocking-macos.c)
+# target_link_libraries(webserver OpenSSL::SSL)
 
 add_executable(main tests/main.c)
 target_link_libraries(main OpenSSL::SSL)
