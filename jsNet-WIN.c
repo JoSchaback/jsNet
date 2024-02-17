@@ -16,7 +16,7 @@
 
 WSADATA wsaData;
 
-void jsNet_init() { /*
+void jsNet_init() {
     // Declare and initialize variables
     wsaData = {0};
     int iResult = 0;
@@ -27,7 +27,7 @@ void jsNet_init() { /*
     iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
     if (iResult != 0) {
         wprintf(L"WSAStartup failed: %d\n", iResult);
-    }*/
+    }
 }
 
 int64_t jsNet_Socket_create(
