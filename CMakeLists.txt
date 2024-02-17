@@ -80,7 +80,7 @@ add_executable(main tests/main.c)
 target_link_libraries(main socket)
 
 
-#include(CTest)
+include(CTest)
 # Include directories
 # include_directories(/opt/homebrew/Cellar/openssl@3/3.2.0_1/include)
 
@@ -88,5 +88,5 @@ target_link_libraries(main socket)
 # link_directories(/opt/homebrew/Cellar/openssl@3/3.2.0_1/lib)
 
 
-# add_test(NAME ctr_hub_smoke_test COMMAND ctr_hub --max-poll-count 1)
+add_test(NAME main_test COMMAND main)
 # add_test(NAME generate_five_user_names COMMAND usergen -c 5)
