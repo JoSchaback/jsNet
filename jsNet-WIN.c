@@ -5,7 +5,7 @@
 #include "jsNet.h"
 
 // link with Ws2_32.lib
-/*
+
 #pragma comment(lib,"Ws2_32.lib")
 
 #include <winsock2.h>
@@ -13,7 +13,7 @@
 #include <windows.h>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
-
+/*
 WSADATA wsaData;
 */
 void jsNet_init() { /*
