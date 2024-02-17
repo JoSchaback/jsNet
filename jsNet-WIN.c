@@ -33,7 +33,7 @@ void jsNet_init() {
 int64_t jsNet_Socket_create(
     enum jsNet_AddressFamily addressFamily, 
     enum jsNet_SocketType socketType) 
-{ /*
+{ 
     int iFamily = AF_UNSPEC;
     int iType = 0;
     int iProtocol = 0;
@@ -48,5 +48,5 @@ int64_t jsNet_Socket_create(
         return -1;
     }
    
-    return sockfd;*/ return 0;
+    return sockfd;
 }
