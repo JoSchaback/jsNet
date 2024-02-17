@@ -12,5 +12,5 @@ typedef struct Socket {
 } Socket;
 
 void jsNet_Socket_create(Socket* socket, int port);
-void jsNet_Socket_close(jsNet_Socket* socket);
+void jsNet_Socket_close(Socket* socket);
 

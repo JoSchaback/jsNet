@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "../jsNet.h"
+
 int main() {
     printf("Hello, World!\n");
     return 0;
