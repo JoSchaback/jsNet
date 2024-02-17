@@ -2,7 +2,7 @@
 #define UNICODE 1
 #endif
 
-#include "jsNet.h"
+#include "socket.h"
 
 // link with Ws2_32.lib
 
@@ -15,25 +15,22 @@
 #include <openssl/err.h>
 
 WSADATA wsaData;
+char isInitialized = 0;
 
-void jsNet_init() {
-    // Declare and initialize variables
-    //wsaData = {0};
-    int iResult = 0;
-
-//    int i = 1;
-    
-    // Initialize Winsock
-    iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
-    if (iResult != 0) {
-        wprintf(L"WSAStartup failed: %d\n", iResult);
-    }
-}
-
-int64_t jsNet_Socket_create(
+int64_t jsNet_sever_socket(
     enum jsNet_AddressFamily addressFamily, 
-    enum jsNet_SocketType socketType) 
-{ 
+    enum jsNet_SocketType socketType,
+    const char* ip, 
+    int port)
+{
+    if( !isInitialized ) {
+        // Initialize Winsock
+        iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
+        if (iResult != 0) {
+            wprintf(L"WSAStartup failed: %d\n", iResult);
+        }        
+    }
+
     int iFamily = AF_UNSPEC;
     int iType = 0;
     int iProtocol = 0;
@@ -46,7 +43,7 @@ int64_t jsNet_Socket_create(
     if (sockfd == INVALID_SOCKET) {
         perror("socket");
         return -1;
-    }
-   
+    }    
+
     return sockfd;
 }

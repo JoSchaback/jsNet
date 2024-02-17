@@ -2,14 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <jsNet.h>
+#include <socket.h>
 
 int main() {
     printf("Hello, World!\n");
 
-    jsNet_init();
-
-    uint64_t socket_fd = jsNet_Socket_create(jsNet_IPV4, jsNet_TCP);
+    uint64_t socket_fd = jsNet_sever_socket(
+        jsNet_IPV4, 
+        jsNet_TCP, 
+        "0.0.0.0", 
+        8080);
 
     if( socket_fd < 0 ) {
         printf("Error creating socket\n");

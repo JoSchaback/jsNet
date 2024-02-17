@@ -60,24 +60,24 @@ find_package(OpenSSL REQUIRED)
 
 if(CMAKE_SYSTEM MATCHES Windows)
    message(STATUS "Target system is Windows")
-   add_library(jsNet jsNet-WIN.c)
+   add_library(socket socket-WIN.c)
 endif()
 
 if(CMAKE_HOST_SYSTEM MATCHES Linux)
    message(STATUS "Build host runs Linux")
-   add_library(jsNet jsNet-LINUX.c)
+   add_library(socket socket-LINUX.c)
 endif()
 
 if(CMAKE_HOST_SYSTEM MATCHES Darwin)
    message(STATUS "Build host runs MacOs")
-   add_library(jsNet jsNet-MACOS.c)
+   add_library(socket socket-MACOS.c)
 endif()
 
-target_link_libraries(jsNet OpenSSL::SSL)
-target_include_directories(jsNet PUBLIC .)   
+target_link_libraries(socket OpenSSL::SSL)
+target_include_directories(socket PUBLIC .)   
 
 add_executable(main tests/main.c)
-target_link_libraries(main jsNet)
+target_link_libraries(main socket)
 
 
 #include(CTest)

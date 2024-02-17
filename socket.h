@@ -17,8 +17,14 @@ enum jsNet_AddressFamily {
     jsNet_IPV6
 };
 
+int64_t jsNet_sever_socket(
+    enum jsNet_AddressFamily addressFamily, 
+    enum jsNet_SocketType socketType,
+    const char* ip, 
+    int port);
 
-void jsNet_init();
-
-int64_t jsNet_Socket_create(enum jsNet_AddressFamily addressFamily, enum jsNet_SocketType socketType);
-
+int64_t jsNet_client_socket(
+    enum jsNet_AddressFamily addressFamily, 
+    enum jsNet_SocketType socketType,
+    const char* ip, 
+    int port);
