@@ -18,7 +18,7 @@ WSADATA wsaData;
 
 void jsNet_init() {
     // Declare and initialize variables
-    wsaData = {0};
+    //wsaData = {0};
     int iResult = 0;
 
 //    int i = 1;
