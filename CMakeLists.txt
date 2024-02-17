@@ -60,6 +60,7 @@ find_package(OpenSSL REQUIRED)
 
 if(CMAKE_SYSTEM MATCHES Windows)
    message(STATUS "Target system is Windows")
+   add_library(jsNet jsNet-WIN.c)
 endif()
 
 if(CMAKE_HOST_SYSTEM MATCHES Linux)

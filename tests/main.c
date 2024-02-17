@@ -7,6 +7,8 @@
 int main() {
     printf("Hello, World!\n");
 
+    jsNet_init();
+
     uint64_t socket_fd = jsNet_Socket_create(jsNet_IPV4, jsNet_TCP);
 
     if( socket_fd < 0 ) {
