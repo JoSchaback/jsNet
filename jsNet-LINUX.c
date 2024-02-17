@@ -14,6 +14,9 @@
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 
+void jsNet_init() {
+    
+}
 
 int64_t jsNet_Socket_create(
     enum jsNet_AddressFamily addressFamily, 
