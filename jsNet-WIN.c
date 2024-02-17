@@ -24,7 +24,7 @@ void jsNet_init() {
     int iProtocol = 0;
 
     iFamily   = AF_INET;
-    iType     = SOCK_DRAGM;
+    iType     = SOCK_DGRAM;
     iProtocol = IPPROTO_TCP;
     
     // Initialize Winsock
