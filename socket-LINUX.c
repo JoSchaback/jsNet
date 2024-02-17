@@ -36,7 +36,7 @@ int64_t jsNet_sever_socket(
         return -1;
     }
 
-    int bind_status = bind(socket_fd, (struct sockaddr*)&server_address, sizeof(server_address));
+    int bind_status = bind(sockfd, (struct sockaddr*)&server_address, sizeof(server_address));
     if (bind_status == -1) {
         perror("bind");
         return -1;
