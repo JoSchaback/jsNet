@@ -3,6 +3,7 @@
 // are required in the lib
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h> // for int64_t
 #include <string.h>
 #include <stdbool.h>
 
