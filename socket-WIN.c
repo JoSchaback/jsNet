@@ -25,7 +25,7 @@ int64_t jsNet_sever_socket(
 {
     if( !isInitialized ) {
         // Initialize Winsock
-        iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
+        int iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
         if (iResult != 0) {
             wprintf(L"WSAStartup failed: %d\n", iResult);
         }        
@@ -44,6 +44,26 @@ int64_t jsNet_sever_socket(
         perror("socket");
         return -1;
     }    
+
+    struct sockaddr_in serverService;
+    serverService.sin_family = AF_INET;
+    serverService.sin_addr.s_addr = htonl(INADDR_ANY);
+    serverService.sin_port = htons(27015);
+
+    if (bind(sockfd, (SOCKADDR *) &serverService, sizeof(serverService)) == SOCKET_ERROR) {
+        printf("bind failed with error: %d\n", WSAGetLastError());
+        closesocket(sockfd);
+        WSACleanup();
+        return -1;
+    }
+
+    if (listen(sockfd, SOMAXCONN) == SOCKET_ERROR) {
+        printf("listen failed with error: %d\n", WSAGetLastError());
+        closesocket(sockfd);
+        WSACleanup();
+        return -1;
+    }
+
 
     return sockfd;
 }
