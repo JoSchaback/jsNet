@@ -20,10 +20,13 @@ void jsNet_Socket_close(Socket* s) {
 }
 
 
-void jsNet_Socket_create(Socket* socket_p, int port) {
+int64_t jsNet_Socket_create(
+    enum jsNet_AddressFamily addressFamily, 
+    enum jsNet_SocketType socketType) 
+{
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd == -1) {
         perror("socket");
-        exit(EXIT_FAILURE);
+        return -1;
     }
 }

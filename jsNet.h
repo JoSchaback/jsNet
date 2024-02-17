@@ -4,13 +4,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
+
+enum jsNet_SocketType {
+    jsNet_TCP,
+    jsNet_UDP
+};
+
+enum jsNet_AddressFamily {
+    jsNet_IPV4,
+    jsNet_IPV6
+};
 
 
-typedef struct Socket {
-    int fileDescriptor;
+void jsNet_init();
 
-} Socket;
-
-void jsNet_Socket_create(Socket* socket, int port);
-void jsNet_Socket_close(Socket* socket);
+int64_t jsNet_Socket_create(enum jsNet_AddressFamily addressFamily, enum jsNet_SocketType socketType);
 

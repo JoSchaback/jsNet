@@ -13,15 +13,20 @@
 #include <openssl/err.h>
 
 
-void jsNet_Socket_close(Socket* socket) {
-
+void jsNet_init() {
+    printf("jsNet initialized\n");
 }
 
+int64_t jsNet_Socket_create(
+    enum jsNet_AddressFamily addressFamily, 
+    enum jsNet_SocketType socketType) 
+{
+    // TODO add conidiiton for addressFamily etc
 
-void jsNet_Socket_create(Socket* socket_p, int port) {
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd == -1) {
         perror("socket");
-        exit(EXIT_FAILURE);
+        return -1;
     }
+    return sockfd;
 }
